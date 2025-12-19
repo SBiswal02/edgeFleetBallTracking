@@ -1,10 +1,8 @@
 # Cricket Ball Detection & Tracking: Design Report
 
-## Executive Summary
 
-This project implements a comprehensive cricket ball detection and tracking system using YOLOv8 object detection models combined with physics-aware interpolation and intelligent post-processing. The system is designed to handle the challenging task of tracking a small, fast-moving cricket ball in video sequences with high accuracy and robustness.
+This project implements a cricket ball detection and tracking system using YOLOv8 object detection models combined with physics-aware interpolation and intelligent post-processing. The system is designed to handle the challenging task of tracking a small, fast-moving cricket ball in video sequences with high accuracy and robustness given a Cricket videosfrom a single static camera.
 
----
 
 ## 1. Project Overview
 
@@ -25,7 +23,6 @@ The solution employs a three-stage pipeline:
 2. **Tracking**: State machine with candidate selection and filtering
 3. **Post-processing**: Physics-aware interpolation with outlier removal
 
----
 
 ## 2. Model Selection & Training Decisions
 
@@ -99,7 +96,6 @@ The project experimented with multiple YOLOv8 variants:
   - Low threshold ensures no ball detections are missed
   - Post-processing removes noise
 
----
 
 ## 3. Tracking Pipeline Design
 
@@ -167,7 +163,6 @@ else:
 - Prevents tracking from jumping to distant false positives
 - Adapts to occlusion scenarios
 
----
 
 ## 4. Physics-Aware Interpolation
 
@@ -220,7 +215,6 @@ mask_s1 = (valid_indices <= bounce_idx_global)  # Pre-bounce
 mask_s2 = (valid_indices >= bounce_idx_global)  # Post-bounce
 ```
 
----
 
 ## 5. Post-Processing & Filtering
 
@@ -292,7 +286,6 @@ The post-processing pipeline consists of four stages:
 
 **Rationale**: Removes detections that are clearly not balls (too large/small, wrong shape)
 
----
 
 ## 6. ROI Selection System
 
@@ -341,7 +334,6 @@ def apply_active_area_mask(frame, roi_active):
 - Reduces false positives from graphics/overlays
 - Improves tracking accuracy
 
----
 
 ## 7. Technical Implementation Details
 
@@ -426,7 +418,6 @@ frame,x,y,visible
 - Red circle at current ball position
 - **Rationale**: Visual feedback for tracking quality
 
----
 
 ## 8. Performance Considerations
 
@@ -507,7 +498,6 @@ frame,x,y,visible
 - Quadratic interpolation captures gravity effect adequately
 - Faster computation
 
----
 
 ## 10. Limitations & Future Improvements
 
@@ -555,7 +545,6 @@ frame,x,y,visible
    - Combine multiple model predictions
    - Improve robustness
 
----
 
 ## 11. Conclusion
 
@@ -588,10 +577,4 @@ The system successfully balances accuracy, robustness, and usability while maint
 ### A.4 Template Method Pattern
 - Common structure across training/inference/tracking scripts
 - Shared setup and device detection logic
-
----
-
-**Report Generated**: 2025
-**Project Version**: Based on codebase analysis
-**Author**: Design Documentation
 
