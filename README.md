@@ -1,13 +1,12 @@
 # Cricket Ball Detection & Tracking
 
-A Python project for training YOLOv8 models object detection model to detect and track cricket balls in videos with physics-aware interpolation.
+A Python project for training YOLOv8 models object detection model to detect and track cricket balls in videos
 
 ## Features
 
 **Model Training**: Train YOLOv8 models on custom cricket ball dataset  
 **Inference**: Run predictions on single images or directories  
 **Ball Tracking**: Track cricket balls in videos with bounce detection  
-**Physics-Aware Interpolation**: Separate physics models for X (linear) and Y (gravity) axes  
 **Interactive ROI Selection**: Define active play areas and start zones for tracking  
 **CSV Annotations**: Export tracking data as frame-by-frame CSV files  
 **Video Visualization**: Generate tracked videos with ball trails and positions  
@@ -130,7 +129,7 @@ python code/inference.py --image test_image.jpg --model model/cricket_ball_detec
 
 ### Tracking (Ball Tracking in Video)
 
-Track cricket balls in video files with physics-aware interpolation:
+Track cricket balls in video files with simple interpolation:
 
 ```bash
 # Basic tracking with interactive ROI setup

@@ -1,7 +1,7 @@
 # Cricket Ball Detection & Tracking: Design Report
 
 
-This project implements a cricket ball detection and tracking system using YOLOv8 object detection models combined with physics-aware interpolation and intelligent post-processing. The system is designed to handle the challenging task of tracking a small, fast-moving cricket ball in video sequences with high accuracy and robustness given a Cricket video from a single static camera.
+This project implements a cricket ball detection and tracking system using YOLOv8 object detection models. The system is designed to handle the challenging task of tracking a small, fast-moving cricket ball in video sequences with high accuracy and robustness given a Cricket video from a single static camera.
 
 # Project Overview
 
@@ -70,10 +70,10 @@ yolov12s was restricted due to computation and time constraints
 
 **Hyperparameters**:
 ```python
-- Model: YOLOv8s (default) / YOLOv8m / YOLOv12s
-- Epochs: 50 (default, configurable)
+- Model: YOLOv12m (default) / YOLOv8m / YOLOv12s
+- Epochs: 125 (default, configurable)
 - Batch size: 8 (default, configurable)
-- Image size: 640 (training), 1920 (inference)
+- Image size: 800 (training)
 - Freeze layers: 15 (transfer learning)
 - Patience: 5 (early stopping)
 ```
@@ -171,6 +171,11 @@ else:
 - Ball trajectory changes at bounce (velocity reversal)
 - Separate interpolation prevents smoothing across bounce discontinuity
 - More accurate trajectory reconstruction
+
+### 2 Separate Interpolation Curves
+
+- After the bounce point is detected, we interpolate the trajectory using two separate interpolation curves for the X and Y coordinates.
+- There is a curve interpolated before the bounce point and a curve interpolated after the bounce point.
 
 
 # Post-Processing & Filtering
