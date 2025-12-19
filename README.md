@@ -25,11 +25,12 @@ ball_tracking/
 │   |   ├── train/              # Training images/labels
 │   |   ├── valid/              # Validation images/labels
 │   |   └── test/               # Test images/labels
-│   |── .venv/                 # Virtual environment
 │   └── model/                 # Saved models
 ├── results/               # Detection outputs
 ├── annotations/           # CSV tracking data
 ├── requirements.txt       # Dependencies
+├── Report.pdf     # Design report
+├── ballTracking _ Ultralytics – Weights & Biases.pdf     ## wandb report since it can't be shared publicly
 └── README.md              # Project readme
 ```
 
