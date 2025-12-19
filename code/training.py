@@ -23,7 +23,7 @@ def setup_device():
 
 
 def setup_paths():
-    DATASET_PATH = "/home/smrutibiswal/Projects/edgeFleetAI/cricket_ball_data"
+    DATASET_PATH = os.path.join(os.getcwd(), 'cricket_ball_data')
     TEST_PATH = os.path.join(DATASET_PATH, 'test')
     TEST_IMAGES_PATH = os.path.join(TEST_PATH, 'images')
     TEST_LABELS_PATH = os.path.join(TEST_PATH, 'labels')
