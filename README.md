@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-# edgeFleetBallTracking
-=======
 # Cricket Ball Detection & Tracking
 
-A comprehensive Python project for training YOLOv8 models to detect and track cricket balls in videos with physics-aware interpolation.
+A Python project for training YOLOv8 models object detection model to detect and track cricket balls in videos with physics-aware interpolation.
 
 ## Features
 
@@ -20,21 +17,21 @@ A comprehensive Python project for training YOLOv8 models to detect and track cr
 ```
 ball_tracking/
 ├── code/
-│   ├── training.py          # Training script
-│   ├── inference.py         # Inference on images
-│   ├── tracking.py          # Video ball tracking pipeline
-│   └── utilities.py         # Helper functions
-├── cricket_ball_data/
-│   ├── dataset.yaml         # Dataset configuration
-│   ├── train/               # Training images and labels
-│   ├── valid/               # Validation images and labels
-│   └── test/                # Test images and labels
-├── model/                   # Trained models storage
-├── results/                 # Output images with detections
-├── annotations/             # CSV annotation files
-├── .env                     # Environment variables (API keys)
-├── requirements.txt         # Python dependencies
-└── README.md               # This file
+│   ├── training.py         # Model training
+│   ├── inference.py        # Image inference
+│   ├── tracking.py         # Video ball tracking
+│   ├── utilities.py        # Helpers/utilities
+│   ├── cricket_ball_data/
+│   |   ├── dataset.yaml        # config
+│   |   ├── train/              # Training images/labels
+│   |   ├── valid/              # Validation images/labels
+│   |   └── test/               # Test images/labels
+│   |── .venv/                 # Virtual environment
+│   └── model/                 # Saved models
+├── results/               # Detection outputs
+├── annotations/           # CSV tracking data
+├── requirements.txt       # Dependencies
+└── README.md              # Project readme
 ```
 
 ## Installation
@@ -240,13 +237,6 @@ python code/inference.py --help
 python code/tracking.py --help
 ```
 
-## System Requirements
-
-- **Python**: 3.9+
-- **CUDA**: 12.1+ (recommended for GPU acceleration)
-- **RAM**: 8GB+ (16GB+ recommended)
-- **Disk**: 5GB+ for models and data
-
 ## Troubleshooting
 
 ### Model Not Found Error
@@ -326,26 +316,9 @@ Each `.txt` label file should contain:
 
 Where coordinates are normalized (0-1).
 
-## Performance Tips
-
-1. **Training**: Use `--freeze 15` to leverage pretrained weights
-2. **Inference**: Lower `--conf` threshold to catch more detections
-3. **Tracking**: 
-   - Use `--imgsz 1920` for high-resolution videos
-   - Define ROI to exclude irrelevant areas
-   - Higher `--conf` for confident detections
-
 ## License & Credits
 
 This project uses:
 - [YOLOv8](https://github.com/ultralytics/ultralytics) - Ultralytics
 - [PyTorch](https://pytorch.org/) - Meta
 - [OpenCV](https://opencv.org/) - OpenCV Community
-
-## Diagnostics
-
-For issues:
-1. Check the help: `python code/<script>.py --help`
-2. Verify file paths exist
-3. Check GPU availability: `python -c "import torch; print(torch.cuda.is_available())"`
->>>>>>> cbdcb0d (final submission phase 1)
